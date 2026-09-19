@@ -22,7 +22,7 @@ export default function WaitlistForm() {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ email, _subject: "New taiafox waitlist signup" }),
+        body: JSON.stringify({ email, _subject: "New Taiafox waitlist signup" }),
       });
       if (!res.ok) throw new Error(`Formspree responded ${res.status}`);
       setStatus("sent");

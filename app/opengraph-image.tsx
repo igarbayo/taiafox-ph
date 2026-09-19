@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 import { symbolDataUri } from "@/lib/symbol";
 
 export const dynamic = "force-static";
-export const alt = "taiafox";
+export const alt = "Taiafox";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

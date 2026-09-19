@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Partners from "@/components/Partners";
+import LoiPhoto from "@/components/LoiPhoto";
 
 export const metadata: Metadata = {
-  title: "taiafox — Estudio de negocio",
+  title: "Taiafox — Estudio de negocio",
   description:
-    "Dos compradores con presupuesto ya nos cogen el teléfono. Validación, mercado y equipo de taiafox.",
+    "Dos compradores con presupuesto ya nos cogen el teléfono. Validación, mercado y equipo de Taiafox.",
 };
 
 const lois = [
@@ -17,6 +18,8 @@ const lois = [
     value: "213 M€",
     label: "PLADIGA 2026",
     src: "https://www.laregion.es/galicia/xunta-galicia-aprueba-plan-antincendios_1_20260413-4234618.html",
+    proof: "/photos/foto-pablo.png",
+    proofLabel: "Foto Pablo",
     linkedin: "https://www.linkedin.com/in/pablo-fern%C3%A1ndez-vila-416a2425/",
   },
   {
@@ -27,6 +30,8 @@ const lois = [
     value: "16 M",
     label: "PERSONAS SERVIDAS · 180.000 KM²",
     src: "https://www.prnewswire.com/news-releases/three-year-wildfire-mitigation-plan-builds-upon-proven-layers-of-protection-includes-nearly-1-100-miles-of-undergrounding-and-further-integration-of-new-technologies-302422274.html",
+    proof: "/photos/foto-andrew.jpeg",
+    proofLabel: "Foto Andrew",
     linkedin: "https://www.linkedin.com/in/andrewabranches/",
   },
 ];
@@ -193,9 +198,12 @@ export default function VC() {
                 <div className="vc-loi-tag">
                   {l.label} · <Src href={l.src} />
                 </div>
-                <a href={l.linkedin} target="_blank" rel="noreferrer" className="vc-link">
-                  LinkedIn →
-                </a>
+                <div className="vc-loi-actions">
+                  <a href={l.linkedin} target="_blank" rel="noreferrer" className="vc-link">
+                    LinkedIn →
+                  </a>
+                  <LoiPhoto src={l.proof} label={l.proofLabel} />
+                </div>
               </div>
             ))}
           </div>
@@ -256,7 +264,7 @@ export default function VC() {
             ))}
           </div>
           <div className="frame">
-            <img src="/shots/map.png" alt="Mapa operativo de taiafox" />
+            <img src="/shots/map.png" alt="Mapa operativo de Taiafox" />
           </div>
         </div>
       </section>
@@ -280,7 +288,7 @@ export default function VC() {
             ))}
             <div className="vc-chain-us">
               <div className="vc-chain-step">Ejecutar</div>
-              <div className="vc-chain-who">taiafox</div>
+              <div className="vc-chain-who">Taiafox</div>
             </div>
           </div>
           <div className="vc-grid vc-grid-260 vc-points">
