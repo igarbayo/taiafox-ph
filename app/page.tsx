@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Partners from "@/components/Partners";
 import WaitlistForm from "@/components/WaitlistForm";
 
 export default function Home() {
@@ -20,11 +21,7 @@ export default function Home() {
             taiafox filters a hundred incoming messages down to the three that matter, coordinates
             responders by voice, and re-plans in under a second when the fire turns.
           </p>
-          <div className="partners">
-            <img src="/logos/hackspain2.png" alt="HackSpain" className="hackspain" />
-            <div className="divider" />
-            <img src="/logos/happyrobot.png" alt="HappyRobot" className="happyrobot" />
-          </div>
+          <Partners />
           <div className="hero-shot">
             <div className="frame">
               <img src="/shots/map.png" alt="Mapa en directo de taiafox" />
@@ -93,11 +90,7 @@ export default function Home() {
             touch.
           </p>
           <WaitlistForm />
-          <div className="partners waitlist-partners">
-            <img src="/logos/hackspain2.png" alt="HackSpain" className="hackspain" />
-            <div className="divider" />
-            <img src="/logos/happyrobot.png" alt="HappyRobot" className="happyrobot" />
-          </div>
+          <Partners className="waitlist-partners" />
         </div>
       </section>
     </div>
