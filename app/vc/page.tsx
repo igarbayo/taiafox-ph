@@ -175,7 +175,12 @@ export default function VC() {
           <a href="/" className="header-home">
             <img src="/logos/taiafox-C-rounded.svg" alt="taiafox" className="header-logo" />
           </a>
-          <div className="header-label">Estudio de negocio</div>
+          <div className="vc-header-right">
+            <div className="header-label">Estudio de negocio</div>
+            <a href="/" className="header-cta">
+              Volver a Home
+            </a>
+          </div>
         </div>
       </header>
 
@@ -497,7 +502,7 @@ export default function VC() {
           <div className="stack vc-end-cta">
             <h2 className="display vc-title">Volved cuando queráis.</h2>
             <div className="vc-qr-wrap">
-              <div className="vc-qr">QR · placeholder</div>
+              <img src="/qr-taiafox.svg" alt="QR a taiafox-ph-five.vercel.app" className="vc-qr" />
             </div>
             <a href="/" className="vc-pill">
               Ir a la landing
