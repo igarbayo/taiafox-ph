@@ -586,10 +586,13 @@ a:hover { color: var(--rust-dark); }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
+  gap: 8px;
   height: 36px;
-  padding: 0;
-  border-radius: 50%;
+  padding: 0 14px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 18px;
   border: 1px solid rgba(232, 160, 99, 0.4);
   background: transparent;
   color: var(--amber);
