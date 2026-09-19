@@ -1,0 +1,246 @@
+:root {
+  --cream: #f7f3ea;
+  --ink: #14110e;
+  --forest: #1c3a2a;
+  --rust: #c25a32;
+  --rust-dark: #9e4525;
+  --amber: #e8a063;
+  --muted: #7e7566;
+  --mint: #d9e4db;
+  --sage: #b9cdbe;
+  --frame: #100d0a;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--cream); }
+a { color: var(--rust); text-decoration: none; }
+a:hover { color: var(--rust-dark); }
+
+.page {
+  font-family: inherit;
+  color: var(--ink);
+  background: var(--cream);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.container { max-width: 1200px; margin: 0 auto; }
+.stack { display: flex; flex-direction: column; }
+.dark { background: var(--forest); color: var(--cream); }
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(247, 243, 234, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(20, 17, 14, 0.08);
+}
+.header-inner {
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.header-logo { height: 40px; display: block; }
+.header-cta {
+  font-weight: 700;
+  font-size: 13.2px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--forest);
+  border: 2px solid var(--forest);
+  border-radius: 999px;
+  padding: 10px 22px;
+}
+.header-cta:hover { background: var(--forest); color: var(--cream); }
+
+/* Hero */
+.hero { padding: clamp(56px, 7vw, 110px) 28px clamp(0px, 4vw, 60px); }
+.hero .container { gap: clamp(28px, 4vw, 48px); }
+.hero h1 {
+  margin: 0;
+  font-size: clamp(38.7px, 6.5vw, 84.5px);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  text-wrap: pretty;
+  max-width: 14ch;
+}
+.hero-lead {
+  margin: 0;
+  font-size: clamp(15.8px, 1.8vw, 22.9px);
+  line-height: 1.5;
+  max-width: 56ch;
+  color: var(--mint);
+}
+.partners {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 40px);
+  flex-wrap: wrap;
+}
+.partners img { display: block; }
+.partners .hackspain { height: clamp(44px, 5vw, 66px); }
+.partners .happyrobot { height: clamp(24px, 2.7vw, 34px); }
+.divider { width: 2px; height: 44px; background: rgba(247, 243, 234, 0.28); }
+.hero-shot { margin-top: clamp(12px, 2vw, 24px); }
+.hero-shot .frame {
+  border-radius: 18px 18px 0 0;
+  padding: clamp(10px, 1.4vw, 20px) clamp(10px, 1.4vw, 20px) 0;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.32);
+}
+.hero-shot img { border-radius: 6px 6px 0 0; }
+
+/* Screenshot frame */
+.frame {
+  background: var(--frame);
+  border-radius: 18px;
+  padding: clamp(10px, 1.4vw, 20px);
+  box-shadow: 0 40px 80px rgba(20, 17, 14, 0.18);
+}
+.frame img { display: block; width: 100%; border-radius: 6px; }
+
+/* Feature sections */
+.feature { padding: clamp(64px, 8vw, 130px) 28px; }
+.feature.tail { padding-top: 0; }
+.feature .container { gap: clamp(28px, 4vw, 52px); }
+.display {
+  margin: 0;
+  font-size: clamp(29.9px, 4.8vw, 63.4px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.headline-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: clamp(10px, 1.6vw, 28px);
+}
+.accent { color: var(--rust); }
+.feature .wrap { line-height: 1.04; text-wrap: pretty; max-width: 18ch; }
+.eyebrow {
+  font-weight: 700;
+  font-size: clamp(11.4px, 1.2vw, 15.8px);
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+/* Principle */
+.principle { padding: clamp(64px, 8vw, 130px) 28px; }
+.principle .container { gap: clamp(40px, 5vw, 72px); }
+.principle h2 {
+  margin: 0;
+  font-size: clamp(29.9px, 4.9vw, 70.4px);
+  line-height: 1.03;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-wrap: pretty;
+  max-width: 20ch;
+}
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+}
+.pipeline {
+  gap: clamp(24px, 3vw, 48px);
+  font-weight: 700;
+  font-size: clamp(14.1px, 1.6vw, 19.4px);
+  letter-spacing: 0.06em;
+  color: var(--sage);
+}
+.pipeline > div { border-top: 2px solid rgba(247, 243, 234, 0.28); padding-top: 20px; }
+
+/* Stats */
+.stats { padding: clamp(64px, 8vw, 120px) 28px; }
+.stats .container { gap: clamp(32px, 4vw, 64px); }
+.stat { display: flex; flex-direction: column; gap: 10px; }
+.stat-value {
+  font-size: clamp(38.7px, 5.3vw, 70.4px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+.stat-label {
+  font-weight: 700;
+  font-size: clamp(11.4px, 1.1vw, 15px);
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+/* Waitlist */
+.waitlist { padding: clamp(72px, 9vw, 150px) 28px; }
+.waitlist .inner {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(24px, 3vw, 40px);
+  text-align: center;
+}
+.waitlist-logo { width: min(320px, 60%); filter: brightness(0) invert(1); }
+.waitlist h2 {
+  margin: 0;
+  font-size: clamp(26.4px, 4vw, 52.8px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  text-wrap: pretty;
+}
+.waitlist p {
+  margin: 0;
+  font-size: clamp(15px, 1.7vw, 19.4px);
+  line-height: 1.5;
+  max-width: 44ch;
+  color: var(--mint);
+}
+.waitlist-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  max-width: 560px;
+  justify-content: center;
+}
+.waitlist-form input {
+  flex: 1 1 280px;
+  min-width: 0;
+  font-family: inherit;
+  font-size: 16.7px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--cream);
+  border: 2px solid var(--cream);
+  border-radius: 999px;
+  padding: 16px 24px;
+  outline: none;
+}
+.waitlist-form button {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--forest);
+  background: var(--amber);
+  border: none;
+  border-radius: 999px;
+  padding: 16px 32px;
+  cursor: pointer;
+}
+.waitlist-form button:hover:not(:disabled) { background: var(--rust); color: var(--cream); }
+.waitlist-form button:disabled { opacity: 0.7; cursor: default; }
+.waitlist-status { font-weight: 700; font-size: 15.8px; letter-spacing: 0.04em; color: var(--amber); }
+.waitlist-partners {
+  justify-content: center;
+  gap: 28px;
+  margin-top: clamp(16px, 2vw, 32px);
+  opacity: 0.9;
+}
+.waitlist-partners .hackspain { height: 48px; }
+.waitlist-partners .happyrobot { height: 24px; }
+.waitlist-partners .divider { height: 34px; }
