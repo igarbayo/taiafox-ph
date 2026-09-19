@@ -126,10 +126,10 @@ const budget = [
 ];
 
 const team = [
-  { photo: "/photos/ignacio.png", name: "Ignacio Garbayo", linkedin: "https://www.linkedin.com/in/ignaciogarbayo/" },
-  { photo: "/photos/luis.png", name: "Luis Garbayo", linkedin: "https://www.linkedin.com/in/luis-garbayo/" },
-  { photo: "/photos/carlos.jpg", name: "Carlos Cao López", linkedin: "https://www.linkedin.com/in/carlos-cao-l%C3%B3pez-205297335/" },
-  { photo: "/photos/hugo.jpg", name: "Hugo Nienhausen", linkedin: "https://www.linkedin.com/in/hugonienhausen/" },
+  { photo: "/photos/ignacio.png", name: "Ignacio Garbayo", role: "Engineer @ Factorial", uni: "USC", linkedin: "https://www.linkedin.com/in/ignaciogarbayo/" },
+  { photo: "/photos/luis.png", name: "Luis Garbayo", role: "Engineer @ Historia", uni: "Uvigo", linkedin: "https://www.linkedin.com/in/luis-garbayo/" },
+  { photo: "/photos/carlos.jpg", name: "Carlos Cao López", uni: "USC", linkedin: "https://www.linkedin.com/in/carlos-cao-l%C3%B3pez-205297335/" },
+  { photo: "/photos/hugo.jpg", name: "Hugo Nienhausen", role: "SRE @ Glovo", uni: "UPC", linkedin: "https://www.linkedin.com/in/hugonienhausen/" },
 ];
 
 const faq = [
@@ -461,6 +461,7 @@ export default function VC() {
                 <img src={m.photo} alt={m.name} className="vc-member-photo" />
                 <div>
                   <div className="vc-member-name">{m.name}</div>
+                  <div className="vc-member-role">{[("role" in m ? m.role : null), m.uni].filter(Boolean).join(" — ")}</div>
                   <a href={m.linkedin} target="_blank" rel="noreferrer" className="vc-link">
                     LinkedIn →
                   </a>
