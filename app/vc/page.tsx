@@ -127,7 +127,7 @@ const budget = [
 
 const team = [
   { photo: "/photos/ignacio.png", name: "Ignacio Garbayo", role: "Engineer @ Factorial", uni: "USC", linkedin: "https://www.linkedin.com/in/ignaciogarbayo/" },
-  { photo: "/photos/luis.png", name: "Luis Garbayo", role: "Engineer @ Historia", uni: "Uvigo", linkedin: "https://www.linkedin.com/in/luis-garbayo/" },
+  { photo: "/photos/luis.png", name: "Luis Garbayo", role: "Engineer @ Histora", uni: "Uvigo", linkedin: "https://www.linkedin.com/in/luis-garbayo/" },
   { photo: "/photos/carlos.jpg", name: "Carlos Cao López", uni: "USC", linkedin: "https://www.linkedin.com/in/carlos-cao-l%C3%B3pez-205297335/" },
   { photo: "/photos/hugo.jpg", name: "Hugo Nienhausen", role: "SRE @ Glovo", uni: "UPC", linkedin: "https://www.linkedin.com/in/hugonienhausen/" },
 ];
