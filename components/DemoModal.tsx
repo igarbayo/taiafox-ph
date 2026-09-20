@@ -197,7 +197,7 @@ export default function DemoModal() {
           <a href="https://www.youtube.com/watch?v=vYMx2elWio0" target="_blank" rel="noreferrer">
             vídeo
           </a>{" "}
-          para ver Minecraft. El caso es que hay que hacer un streaming desde una UPS y no conecta
+          para ver Minecraft. El caso es que hay que hacer un streaming desde una VPS y no conecta
           con el servidor de Minecraft.
         </div>
         <p className="demo-lead">
