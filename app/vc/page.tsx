@@ -501,8 +501,14 @@ export default function VC() {
         <div className="container vc-end-grid">
           <div className="stack vc-end-col">
             <div className="vc-kicker">Elevator pitch · 60 s</div>
-            <div className="vc-video">Vídeo del pitch · placeholder</div>
-            <div className="vc-note">Placeholder: sustituir por el vídeo del pitch.</div>
+            <div className="vc-video">
+              <iframe
+                src="https://www.youtube.com/embed/vYMx2elWio0"
+                title="Elevator pitch"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
           </div>
           <div className="stack vc-end-cta">
             <h2 className="display vc-title">Volved cuando queráis.</h2>
