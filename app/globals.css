@@ -57,6 +57,7 @@ a:hover { color: var(--rust-dark); }
   padding: 10px 22px;
 }
 .header-cta:hover { background: var(--forest); color: var(--cream); }
+.header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
 
 /* Hero */
 .hero { padding: clamp(56px, 7vw, 110px) 28px clamp(0px, 4vw, 60px); }

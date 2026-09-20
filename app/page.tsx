@@ -8,9 +8,14 @@ export default function Home() {
       <header className="header">
         <div className="container header-inner">
           <img src="/logos/taiafox-C-rounded.svg" alt="taiafox" className="header-logo" />
-          <a href="#waitlist" className="header-cta">
-            Join the waitlist
-          </a>
+          <div className="header-actions">
+            <a href="/vc" className="header-cta">
+              Ver negocio
+            </a>
+            <a href="#waitlist" className="header-cta">
+              Join the waitlist
+            </a>
+          </div>
         </div>
       </header>
 

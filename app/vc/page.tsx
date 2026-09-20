@@ -217,7 +217,12 @@ export default function VC() {
             pre-seed.
           </p>
           <div>
-            <a href="#" target="_blank" rel="noreferrer" className="vc-pill">
+            <a
+              href="https://www.producthunt.com/products/taiafox?launch=taiafox"
+              target="_blank"
+              rel="noreferrer"
+              className="vc-pill"
+            >
               Ver en Product Hunt
             </a>
           </div>
