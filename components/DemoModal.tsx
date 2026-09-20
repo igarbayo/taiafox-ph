@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState, type FormEvent } from "react";
+import { createPortal } from "react-dom";
 
 const API = process.env.NEXT_PUBLIC_DEMO_API ?? "https://taiafox.ignaciogarbayo.com";
 const SCENARIO_ID = "wildfire_ridge";
@@ -54,8 +55,11 @@ export default function DemoModal() {
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [retryIn, setRetryIn] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   const roles = status?.phone_roles?.length ? status.phone_roles : FALLBACK_ROLES;
+
+  useEffect(() => setMounted(true), []);
 
   const loadStatus = useCallback(async () => {
     setLoading(true);
@@ -86,7 +90,12 @@ export default function DemoModal() {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
   }, [open]);
 
   useEffect(() => {
@@ -160,105 +169,108 @@ export default function DemoModal() {
 
   const busy = Boolean(status?.busy) || (retryIn !== null && retryIn > 0);
 
+  /* El header tiene backdrop-filter, que atraparía un position: fixed dentro
+     del nav: el modal se monta en <body> a través de un portal. */
+  const modal = (
+    <div
+      className="demo-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Arrancar la demo de Taiafox"
+      onClick={() => setOpen(false)}
+    >
+      <div className="demo-panel" onClick={(e) => e.stopPropagation()}>
+        <button
+          type="button"
+          className="demo-close"
+          onClick={() => setOpen(false)}
+          aria-label="Cerrar"
+        >
+          ✕
+        </button>
+
+        <h2 className="demo-title">Arranca la demo</h2>
+        <p className="demo-lead">
+          Cinco móviles reales recibirán la llamada de Taiafox durante el incendio de Wildfire
+          Ridge. Todos los campos son obligatorios y en formato internacional (+34600111222).
+        </p>
+
+        {loading && <div className="demo-note">Comprobando si la demo está libre…</div>}
+
+        {!loading && busy && (
+          <div className="demo-alert">
+            Ya hay una demo en marcha.{" "}
+            {retryIn !== null && retryIn > 0
+              ? `Vuelve en ${minutes(retryIn)} minutos.`
+              : "Vuelve en unos minutos."}
+          </div>
+        )}
+
+        {!loading && status?.inbound_number && (
+          <div className="demo-inbound">
+            <span className="demo-inbound-label">Tú haces de vecino: llama a</span>
+            <a href={`tel:${status.inbound_number}`} className="demo-inbound-number">
+              {status.inbound_number}
+            </a>
+          </div>
+        )}
+
+        <form className="demo-form" onSubmit={onSubmit} noValidate>
+          {roles.map((role) => (
+            <label key={role.key} className="demo-field">
+              <span className="demo-field-label">{role.label}</span>
+              {role.explica && <span className="demo-field-help">{role.explica}</span>}
+              <input
+                type="tel"
+                inputMode="tel"
+                required
+                autoComplete="off"
+                placeholder="+34600111222"
+                value={phones[role.key] ?? ""}
+                aria-invalid={Boolean(fieldErrors[role.key])}
+                className={fieldErrors[role.key] ? "demo-input invalid" : "demo-input"}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setPhones((prev) => ({ ...prev, [role.key]: value }));
+                  setFieldErrors((prev) => {
+                    if (!prev[role.key]) return prev;
+                    const next = { ...prev };
+                    delete next[role.key];
+                    return next;
+                  });
+                }}
+              />
+              {fieldErrors[role.key] && (
+                <span className="demo-field-error">{fieldErrors[role.key]}</span>
+              )}
+            </label>
+          ))}
+
+          <p className="demo-repeat">
+            Puedes repetir el mismo número en varios papeles: está permitido, pero recibirás
+            varias llamadas seguidas en el mismo móvil y alguna puede dar ocupado.
+          </p>
+
+          {formError && (
+            <div className="demo-alert" role="alert">
+              {formError}
+            </div>
+          )}
+
+          <button type="submit" className="demo-submit" disabled={sending || loading || busy}>
+            {sending ? "Arrancando…" : busy ? "Demo ocupada" : "Empezar"}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+
   return (
     <>
       <button type="button" className="header-cta demo-trigger" onClick={openModal}>
         Probar la demo
       </button>
-
-      {open && (
-        <div
-          className="demo-modal"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Arrancar la demo de Taiafox"
-          onClick={() => setOpen(false)}
-        >
-          <div className="demo-panel" onClick={(e) => e.stopPropagation()}>
-            <button
-              type="button"
-              className="demo-close"
-              onClick={() => setOpen(false)}
-              aria-label="Cerrar"
-            >
-              ✕
-            </button>
-
-            <h2 className="demo-title">Arranca la demo</h2>
-            <p className="demo-lead">
-              Cinco móviles reales recibirán la llamada de Taiafox durante el incendio de Wildfire
-              Ridge. Todos los campos son obligatorios y en formato internacional (+34600111222).
-            </p>
-
-            {loading && <div className="demo-note">Comprobando si la demo está libre…</div>}
-
-            {!loading && busy && (
-              <div className="demo-alert">
-                Ya hay una demo en marcha.{" "}
-                {retryIn !== null && retryIn > 0
-                  ? `Vuelve en ${minutes(retryIn)} minutos.`
-                  : "Vuelve en unos minutos."}
-              </div>
-            )}
-
-            {!loading && status?.inbound_number && (
-              <div className="demo-inbound">
-                <span className="demo-inbound-label">Tú haces de vecino: llama a</span>
-                <a href={`tel:${status.inbound_number}`} className="demo-inbound-number">
-                  {status.inbound_number}
-                </a>
-              </div>
-            )}
-
-            <form className="demo-form" onSubmit={onSubmit} noValidate>
-              {roles.map((role) => (
-                <label key={role.key} className="demo-field">
-                  <span className="demo-field-label">{role.label}</span>
-                  {role.explica && <span className="demo-field-help">{role.explica}</span>}
-                  <input
-                    type="tel"
-                    inputMode="tel"
-                    required
-                    autoComplete="off"
-                    placeholder="+34600111222"
-                    value={phones[role.key] ?? ""}
-                    aria-invalid={Boolean(fieldErrors[role.key])}
-                    className={fieldErrors[role.key] ? "demo-input invalid" : "demo-input"}
-                    onChange={(e) => {
-                      const value = e.target.value;
-                      setPhones((prev) => ({ ...prev, [role.key]: value }));
-                      setFieldErrors((prev) => {
-                        if (!prev[role.key]) return prev;
-                        const next = { ...prev };
-                        delete next[role.key];
-                        return next;
-                      });
-                    }}
-                  />
-                  {fieldErrors[role.key] && (
-                    <span className="demo-field-error">{fieldErrors[role.key]}</span>
-                  )}
-                </label>
-              ))}
-
-              <p className="demo-repeat">
-                Puedes repetir el mismo número en varios papeles: está permitido, pero recibirás
-                varias llamadas seguidas en el mismo móvil y alguna puede dar ocupado.
-              </p>
-
-              {formError && (
-                <div className="demo-alert" role="alert">
-                  {formError}
-                </div>
-              )}
-
-              <button type="submit" className="demo-submit" disabled={sending || loading || busy}>
-                {sending ? "Arrancando…" : busy ? "Demo ocupada" : "Empezar"}
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
+      {open && mounted && createPortal(modal, document.body)}
     </>
   );
 }
