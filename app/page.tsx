@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import DemoModal from "@/components/DemoModal";
 import Partners from "@/components/Partners";
 import WaitlistForm from "@/components/WaitlistForm";
 
@@ -9,6 +10,7 @@ export default function Home() {
         <div className="container header-inner">
           <img src="/logos/taiafox-C-rounded.svg" alt="taiafox" className="header-logo" />
           <div className="header-actions">
+            <DemoModal />
             <a href="/vc" className="header-cta">
               Ver negocio
             </a>

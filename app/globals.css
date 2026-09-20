@@ -637,3 +637,158 @@ a:hover { color: var(--rust-dark); }
 @keyframes vc-fade { from { opacity: 0; } to { opacity: 1; } }
 .vc-member-role { font-size: 16px; color: #4a4a4a; margin-top: 4px; }
 .vc-header-right { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: flex-end; }
+
+/* ---------- Demo modal (home nav) ---------- */
+.demo-trigger {
+  font-family: inherit;
+  background: var(--forest);
+  color: var(--cream);
+  cursor: pointer;
+}
+.demo-trigger:hover { background: var(--rust); border-color: var(--rust); color: var(--cream); }
+
+.demo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 56px) 16px;
+  overflow-y: auto;
+  background: rgba(20, 17, 14, 0.78);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: vc-fade 0.2s ease-out;
+}
+.demo-panel {
+  position: relative;
+  width: min(620px, 100%);
+  margin: auto;
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 20px;
+  padding: clamp(26px, 4vw, 44px);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.45);
+}
+.demo-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.demo-close:hover { color: var(--ink); }
+.demo-title {
+  margin: 0 0 12px;
+  font-size: clamp(26px, 3.4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.demo-lead {
+  margin: 0 0 22px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #4a4236;
+  max-width: 52ch;
+}
+.demo-note {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.demo-alert {
+  background: rgba(194, 90, 50, 0.12);
+  border: 1px solid rgba(194, 90, 50, 0.35);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--rust-dark);
+  margin-bottom: 18px;
+}
+.demo-inbound {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  background: var(--forest);
+  color: var(--cream);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+.demo-inbound-label {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+.demo-inbound-number {
+  font-size: clamp(19px, 2.2vw, 24px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--amber);
+  white-space: nowrap;
+}
+.demo-inbound-number:hover { color: var(--cream); }
+
+.demo-form { display: flex; flex-direction: column; gap: 18px; }
+.demo-field { display: flex; flex-direction: column; gap: 6px; }
+.demo-field-label {
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--forest);
+}
+.demo-field-help { font-size: 14px; line-height: 1.4; color: var(--muted); }
+.demo-input {
+  margin-top: 4px;
+  font-family: inherit;
+  font-size: 16.7px;
+  font-weight: 600;
+  color: var(--ink);
+  background: #fbf8f1;
+  border: 2px solid rgba(20, 17, 14, 0.18);
+  border-radius: 12px;
+  padding: 13px 18px;
+  outline: none;
+  width: 100%;
+}
+.demo-input:focus { border-color: var(--forest); }
+.demo-input.invalid { border-color: var(--rust); background: rgba(194, 90, 50, 0.06); }
+.demo-field-error { font-size: 13.5px; font-weight: 700; color: var(--rust-dark); }
+.demo-repeat {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+  border-top: 1px solid rgba(20, 17, 14, 0.12);
+  padding-top: 16px;
+}
+.demo-submit {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--rust);
+  border: none;
+  border-radius: 999px;
+  padding: 16px 32px;
+  cursor: pointer;
+}
+.demo-submit:hover:not(:disabled) { background: var(--rust-dark); }
+.demo-submit:disabled { opacity: 0.55; cursor: default; }
