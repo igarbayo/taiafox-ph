@@ -707,6 +707,21 @@ a:hover { color: var(--rust-dark); }
   color: var(--muted);
   margin-bottom: 18px;
 }
+.demo-warning {
+  background: rgba(194, 90, 50, 0.12);
+  border: 1px solid rgba(194, 90, 50, 0.35);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--rust-dark);
+  margin-bottom: 18px;
+}
+.demo-warning a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+}
 .demo-alert {
   background: rgba(194, 90, 50, 0.12);
   border: 1px solid rgba(194, 90, 50, 0.35);

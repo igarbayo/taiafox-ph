@@ -190,6 +190,16 @@ export default function DemoModal() {
         </button>
 
         <h2 className="demo-title">Arranca la demo</h2>
+        <div className="demo-warning">
+          La parte de Minecraft ahora mismo no funciona por un tema de credenciales, pero si se
+          quiere ver una visualización, se puede usar el mapa 2D equivalente, o se puede consultar
+          el{" "}
+          <a href="https://www.youtube.com/watch?v=vYMx2elWio0" target="_blank" rel="noreferrer">
+            vídeo
+          </a>{" "}
+          para ver Minecraft. El caso es que hay que hacer un streaming desde una UPS y no conecta
+          con el servidor de Minecraft.
+        </div>
         <p className="demo-lead">
           Cinco móviles reales recibirán la llamada de Taiafox durante el incendio de Wildfire
           Ridge. Todos los campos son obligatorios y en formato internacional (+34600111222).
