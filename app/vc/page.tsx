@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 const lois = [
   {
     tag: "LOI 1 · PÚBLICO · EUROPA",
-    photo: "/photos/pablo.jpg",
-    name: "Pablo Fernández Vila",
+    photo: "/photos/pablo.jpeg",
+    name: "Pablo Fernández López",
     role: "Delegado Territorial de la Xunta en Pontevedra",
     value: "213 M€",
     label: "PLADIGA 2026",
