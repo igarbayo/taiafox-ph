@@ -500,11 +500,11 @@ export default function VC() {
       <section className="vc-section vc-end dark">
         <div className="container vc-end-grid">
           <div className="stack vc-end-col">
-            <div className="vc-kicker">Elevator pitch · 60 s</div>
+            <div className="vc-kicker">Video demo</div>
             <div className="vc-video">
               <iframe
                 src="https://www.youtube.com/embed/vYMx2elWio0"
-                title="Elevator pitch"
+                title="Video demo"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />
