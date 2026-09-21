@@ -20,7 +20,7 @@ const lois = [
     src: "https://www.laregion.es/galicia/xunta-galicia-aprueba-plan-antincendios_1_20260413-4234618.html",
     proof: "/photos/foto-pablo.png",
     proofLabel: "Foto Pablo",
-    linkedin: "https://www.linkedin.com/in/pablo-fern%C3%A1ndez-vila-416a2425/",
+    linkedin: "https://www.linkedin.com/in/pablofdez/",
   },
   {
     tag: "LOI 2 · PRIVADO REGULADO · EE. UU.",
