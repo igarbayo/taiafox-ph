@@ -126,10 +126,10 @@ const budget = [
 ];
 
 const team = [
-  { photo: "/photos/ignacio.png", name: "Ignacio Garbayo", role: "Engineer @ Factorial", uni: "USC", linkedin: "https://www.linkedin.com/in/ignaciogarbayo/" },
-  { photo: "/photos/luis.png", name: "Luis Garbayo", role: "Engineer @ Histora", uni: "Uvigo", linkedin: "https://www.linkedin.com/in/luis-garbayo/" },
-  { photo: "/photos/carlos.jpg", name: "Carlos Cao López", uni: "USC", linkedin: "https://www.linkedin.com/in/carlos-cao-l%C3%B3pez-205297335/" },
-  { photo: "/photos/hugo.jpg", name: "Hugo Nienhausen", role: "SRE @ Glovo", uni: "UPC", linkedin: "https://www.linkedin.com/in/hugonienhausen/" },
+  { photo: "/photos/ignacio.png", name: "Ignacio Garbayo", role: "Engineer @ Factorial", uni: "Doble Grado Matemáticas + Ing. Informática @ USC", linkedin: "https://www.linkedin.com/in/ignaciogarbayo/" },
+  { photo: "/photos/carlos.jpg", name: "Carlos Cao López", uni: "Doble Grado Matemáticas + Ing. Informática @ USC", linkedin: "https://www.linkedin.com/in/carlos-cao-l%C3%B3pez-205297335/" },
+  { photo: "/photos/luis.png", name: "Luis Garbayo", role: "Engineer @ Histora", uni: "Grado Ing. Informática @ UVigo", linkedin: "https://www.linkedin.com/in/luis-garbayo/" },
+  { photo: "/photos/hugo.jpg", name: "Hugo Nienhausen", role: "SRE @ Glovo", uni: "Grado Ing. Informática @ UPC", linkedin: "https://www.linkedin.com/in/hugonienhausen/" },
 ];
 
 const faq = [
@@ -471,7 +471,10 @@ export default function VC() {
                 <img src={m.photo} alt={m.name} className="vc-member-photo" />
                 <div>
                   <div className="vc-member-name">{m.name}</div>
-                  <div className="vc-member-role">{[("role" in m ? m.role : null), m.uni].filter(Boolean).join(" — ")}</div>
+                  <div className="vc-member-role">{m.uni}</div>
+                  {"role" in m && m.role && (
+                    <div className="vc-member-role">{m.role}</div>
+                  )}
                   <a href={m.linkedin} target="_blank" rel="noreferrer" className="vc-link">
                     LinkedIn →
                   </a>
