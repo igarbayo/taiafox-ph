@@ -432,6 +432,7 @@ a:hover { color: var(--rust-dark); }
 
 /* Team */
 .vc-member { display: flex; flex-direction: column; gap: 16px; }
+.vc-member-info { display: flex; flex-direction: column; flex: 1; }
 .vc-member-photo {
   width: 100%;
   height: 340px;
@@ -441,7 +442,7 @@ a:hover { color: var(--rust-dark); }
   background: #efe9dc;
 }
 .vc-member-name { font-size: clamp(19px, 1.8vw, 24px); font-weight: 800; letter-spacing: -0.01em; }
-.vc-member .vc-link { margin-top: 10px; }
+.vc-member .vc-link { margin-top: auto; padding-top: 10px; }
 
 /* FAQ */
 .vc-faq { background: #efe9dc; }

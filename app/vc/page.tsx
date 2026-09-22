@@ -469,7 +469,7 @@ export default function VC() {
             {team.map((m) => (
               <div key={m.name} className="vc-member">
                 <img src={m.photo} alt={m.name} className="vc-member-photo" />
-                <div>
+                <div className="vc-member-info">
                   <div className="vc-member-name">{m.name}</div>
                   <div className="vc-member-role">{m.uni}</div>
                   {"role" in m && m.role && (
